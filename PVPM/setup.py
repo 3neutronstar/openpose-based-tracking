@@ -41,7 +41,7 @@ setup(
     author='Kaiyang Zhou',
     author_email='k.zhou.vision@gmail.com',
     license='MIT',
-    long_description=readme(),
+    #long_description=readme(),
     url='https://github.com/KaiyangZhou/deep-person-reid',
     packages=find_packages(),
     install_requires=[

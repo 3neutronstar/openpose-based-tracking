@@ -190,6 +190,7 @@ class Engine(object):
             rerank (bool, optional): uses person re-ranking (by Zhong et al. CVPR'17).
                 Default is False.
         """
+        self.optimizer.zero_grad(set_to_none=True)
         targets = list(testloader.keys())
         
         for name in targets:
@@ -242,7 +243,7 @@ class Engine(object):
                     score = score.data.cpu()
                     q_score.append(score)
                 else:
-                    features = self._extract_features(imgs, pose)
+                    features,_ = self._extract_features(imgs, pose)
             else:
                 features = self._extract_features(imgs)
             batch_time.update(time.time() - end)
@@ -276,7 +277,7 @@ class Engine(object):
                     score = score.data.cpu()
                     g_score.append(score)
                 else:
-                    features = self._extract_features(imgs, pose)
+                    features, _ = self._extract_features(imgs, pose)
             else:
                 features = self._extract_features(imgs)
             batch_time.update(time.time() - end)

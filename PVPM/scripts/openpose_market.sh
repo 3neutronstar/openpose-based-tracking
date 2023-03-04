@@ -1,6 +1,6 @@
 #!/bin/bash -x
-cd PATH_TO_openpose-master/
-path=PATH_TO_YOUR_DATASET_ROOT/Market-1501-v15.09.15/
+cd ~/openpose/
+path=~/tracking_data/Market-1501-v15.09.15/
 
 image_dir=bounding_box_train/
 output_dir=bounding_box_pose_train

@@ -1,6 +1,6 @@
 #!/bin/bash -x
-cd PATH_TO_openpose-master/
-path=PATH_TO_YOUR_DATASET_ROOT/ICME2018_Occluded-Person-Reidentification_datasets/Occluded_REID/
+cd ~/openpose/
+path=~/tracking_data/ICME2018_Occluded-Person-Reidentification_datasets/Occluded_REID/
 image_dir=whole_body_images/
 output_dir=whole_body_pose
 # image_dir = occluded_body_images

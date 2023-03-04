@@ -49,7 +49,7 @@ class DataManager(object):
                 height, width, transforms
             )
 
-        self.use_gpu = (torch.cuda.is_available() and not use_cpu)
+        self.use_gpu = False # (torch.cuda.is_available() and not use_cpu)
 
     @property
     def num_train_pids(self):
