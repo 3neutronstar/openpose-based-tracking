@@ -97,10 +97,12 @@ class P_Dukereid(ImageDataset):
         if self.load_pose:
             img_name = '.'.join(img_path.split('/')[-1].split('.')[:-1])
             pose_pic_name = img_name + '_pose_heatmaps.png'
+            head_folder=img_name.split('_')[0]
+            pose_pic_name='_'.join(img_name.split('_')[1:])
             if 'whole_body' in img_path:
-                pose_pic_path = os.path.join(self.pose_dir,'whole_body_pose', pose_pic_name)
+                pose_pic_path = os.path.join(self.pose_dir,'whole_body_pose',head_folder, pose_pic_name)
             else:
-                pose_pic_path = os.path.join(self.pose_dir,'occluded_body_pose', pose_pic_name)
+                pose_pic_path = os.path.join(self.pose_dir,'occluded_body_pose',head_folder, pose_pic_name)
             pose = cv2.imread(pose_pic_path, cv2.IMREAD_GRAYSCALE)
             pose = pose.reshape((pose.shape[0], 56, -1)).transpose((0,2,1)).astype('float32')
             pose[:,:,18:] = np.abs(pose[:,:,18:]-128)
