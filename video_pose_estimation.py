@@ -15,8 +15,8 @@ from utils import get_accuracy
 
 if __name__=='__main__':
     
-    protoFile = "pose/coco/pose_deploy_linevec.prototxt"
-    weightsFile = "pose/coco/pose_iter_440000.caffemodel"
+    protoFile = "./pretrained_models/pose_deploy_linevec.prototxt"
+    weightsFile = "./pretrained_models/pose_iter_440000.caffemodel"
     device = '0'
 
     nPoints = 18
@@ -25,16 +25,16 @@ if __name__=='__main__':
                         'L-Elb', 'L-Wr', 'R-Hip', 'R-Knee', 'R-Ank', 'L-Hip', 
                         'L-Knee', 'L-Ank', 'R-Eye', 'L-Eye', 'R-Ear', 'L-Ear']
 
-    pose_pairs = [[1,2], [1,5], [2,3], [3,4], [5,6], [6,7],
+    pose_pairs = np.array([[1,2], [1,5], [2,3], [3,4], [5,6], [6,7],
                 [1,8], [8,9], [9,10], [1,11], [11,12], [12,13],
                 [1,0], [0,14], [14,16], [0,15], [15,17],
-                [2,17], [5,16] ]
+                [2,17], [5,16] ])
 
     # index of pafs correspoding to the pose_pairs
-    mapIdx = [[31,32], [39,40], [33,34], [35,36], [41,42], [43,44], 
+    mapIdx = np.array([[31,32], [39,40], [33,34], [35,36], [41,42], [43,44], 
             [19,20], [21,22], [23,24], [25,26], [27,28], [29,30], 
             [47,48], [49,50], [53,54], [51,52], [55,56], 
-            [37,38], [45,46]]
+            [37,38], [45,46]])
 
     colors = [ [0,100,255], [0,100,255], [0,255,255], [0,100,255], [0,255,255], [0,100,255],
             [0,255,0], [255,200,100], [255,0,255], [0,255,0], [255,200,100], [255,0,255],
@@ -45,7 +45,7 @@ if __name__=='__main__':
     net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
     net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
-    cap=cv2.VideoCapture(os.path.join('video','TmaxDataset2.mp4'))
+    cap=cv2.VideoCapture(os.path.join('Tmax Dataset 1.mp4'))
     idx_t=0
     while(cap.isOpened()):
         t=time.time()
