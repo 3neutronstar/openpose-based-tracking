@@ -1,1 +1,6 @@
 PVPM/experiment/
+pretrained_models/
+*.mp4
+__pycache__/
+*.pyd
+build/

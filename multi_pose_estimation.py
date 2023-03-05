@@ -55,7 +55,7 @@ def getKeypoints(probMap, threshold=0.1):
 
     return keypoints
 
-def getValidPairs(output,mapIdx,detected_keypoints,frameWidth, frameHeight,pose_pairs):
+def getValidPairs(output:np.ndarray,mapIdx:np.ndarray,detected_keypoints:list,frameWidth:int, frameHeight:int,pose_pairs:np.ndarray):
     valid_pairs = []
     invalid_pairs = []
     n_interp_samples = 10
@@ -127,7 +127,7 @@ def getValidPairs(output,mapIdx,detected_keypoints,frameWidth, frameHeight,pose_
 
 # for each detected valid pair, it assigns the joint(s) to a person
 # It finds the person and index at which the joint should be added. This can be done since we have an id for each joint
-def getPersonwiseKeypoints(valid_pairs, invalid_pairs,mapIdx,pose_pairs,keypoints_list): 
+def getPersonwiseKeypoints(valid_pairs:list, invalid_pairs:list ,mapIdx:list,pose_pairs:list,keypoints_list:list): 
     #각 사람의 keypoints를 저장하기 위한 empty list 생성
     personwiseKeypoints = -1 * np.ones((0, 19))
 
