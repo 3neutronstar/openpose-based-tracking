@@ -9,9 +9,10 @@ import os
 
 
 from random import randint
-from multi_pose_estimation import getKeypoints, getPersonwiseKeypoints, getValidPairs
+# from multi_pose_estimation import getKeypoints, getPersonwiseKeypoints, getValidPairs
+import openpose
+from openpose import getKeypoints, getPersonwiseKeypoints, getValidPairs
 from utils import get_accuracy
-
 
 if __name__=='__main__':
     
@@ -28,13 +29,13 @@ if __name__=='__main__':
     pose_pairs = np.array([[1,2], [1,5], [2,3], [3,4], [5,6], [6,7],
                 [1,8], [8,9], [9,10], [1,11], [11,12], [12,13],
                 [1,0], [0,14], [14,16], [0,15], [15,17],
-                [2,17], [5,16] ])
+                [2,17], [5,16] ],dtype=int)
 
     # index of pafs correspoding to the pose_pairs
     mapIdx = np.array([[31,32], [39,40], [33,34], [35,36], [41,42], [43,44], 
             [19,20], [21,22], [23,24], [25,26], [27,28], [29,30], 
             [47,48], [49,50], [53,54], [51,52], [55,56], 
-            [37,38], [45,46]])
+            [37,38], [45,46]],dtype=int)
 
     colors = [ [0,100,255], [0,100,255], [0,255,255], [0,100,255], [0,255,255], [0,100,255],
             [0,255,0], [255,200,100], [255,0,255], [0,255,0], [255,200,100], [255,0,255],
@@ -108,7 +109,6 @@ if __name__=='__main__':
         valid_pairs, invalid_pairs = getValidPairs(output,mapIdx,detected_keypoints,frameWidth, frameHeight,pose_pairs)
         #print(valid_pairs)
         #print('invalid!!!!!!:' , invalid_pairs)
-
         personwiseKeypoints = getPersonwiseKeypoints(valid_pairs, invalid_pairs,mapIdx,pose_pairs,keypoints_list)
 
         for n in range(len(personwiseKeypoints)):
