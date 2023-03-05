@@ -77,12 +77,12 @@ def getValidPairs(np.ndarray[float, ndim=4] output,
                         continue
                     # p(u)
                     interp_coord = np.array(list(zip(np.linspace(candA[i][0], candB[j][0], num=n_interp_samples),
-                                            np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)
+                                            np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)
                     # L(p(u))
                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
                     for k in range(len(interp_coord)):
                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],
-                                           pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float) 
+                                           pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32) 
                     # E
                     paf_scores = np.dot(paf_interp, d_ij)
                     avg_paf_score = sum(paf_scores)/float(len(paf_scores))
