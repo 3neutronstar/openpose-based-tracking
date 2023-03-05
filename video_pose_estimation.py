@@ -121,20 +121,15 @@ if __name__=='__main__':
                 #print(B)
                 A = np.int32(keypoints_list[index.astype(int), 1])
                 cv2.line(frame, (B[0], A[0]), (B[1], A[1]), colors[i], 3, cv2.LINE_AA)
-        #     plt.figure(figsize=[15,15])
-        #     plt.imshow(frame)
-        #     plt.savefig('./images/{}_test2.jpg'.format(idx_t))
-        #     plt.clf()
-        #     plt.close()
     
         dicts = {}
         for idx in keypointsMapping:
             dicts[idx] = 0
 
         for n in range(len(personwiseKeypoints)):
-            boole = personwiseKeypoints[n][:18] >= 0
+            boole = personwiseKeypoints[n][:nPoints] >= 0
             #print(boole)
-            keylist = [i for i in range(18)]
+            keylist = [i for i in range(nPoints)]
             watch = np.array(keypointsMapping)[boole]
 
             for idx in watch:
