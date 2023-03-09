@@ -20,7 +20,7 @@ python main.py --load-pose --root ~/tracking_data \
  --load-weights ./experiment/market_PCB/model.pth.tar-60\
  --train-sampler RandomIdentitySampler\
  --reg-matching-score-epoch 0\
- --graph-matching
- --max-epoch 1
+ --graph-matching \
+ --max-epoch 1 \
  --part-score
 ```
