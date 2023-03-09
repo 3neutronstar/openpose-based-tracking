@@ -1885,7 +1885,6 @@ static const char __pyx_k_cnt[] = "cnt";
 static const char __pyx_k_cv2[] = "cv2";
 static const char __pyx_k_dot[] = "dot";
 static const char __pyx_k_end[] = "end";
-static const char __pyx_k_int[] = "int";
 static const char __pyx_k_num[] = "num";
 static const char __pyx_k_row[] = "row";
 static const char __pyx_k_sum[] = "sum";
@@ -1905,7 +1904,6 @@ static const char __pyx_k_array[] = "array";
 static const char __pyx_k_candA[] = "candA";
 static const char __pyx_k_candB[] = "candB";
 static const char __pyx_k_dtype[] = "dtype";
-static const char __pyx_k_float[] = "float";
 static const char __pyx_k_found[] = "found";
 static const char __pyx_k_int32[] = "int32";
 static const char __pyx_k_max_j[] = "max_j";
@@ -2016,7 +2014,6 @@ static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_fillConvexPoly;
 static PyObject *__pyx_n_s_findContours;
-static PyObject *__pyx_n_s_float;
 static PyObject *__pyx_n_s_float32;
 static PyObject *__pyx_n_s_float64;
 static PyObject *__pyx_n_s_format;
@@ -2030,7 +2027,6 @@ static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_indexA;
 static PyObject *__pyx_n_s_indexB;
-static PyObject *__pyx_n_s_int;
 static PyObject *__pyx_n_s_int32;
 static PyObject *__pyx_n_s_interp_coord;
 static PyObject *__pyx_n_s_invalid_pairs;
@@ -2727,7 +2723,7 @@ static PyObject *__pyx_pf_8openpose_getKeypoints(CYTHON_UNUSED PyObject *__pyx_s
  *         keypoints.append(maxLoc + (probMap[maxLoc[1], maxLoc[0]],))
  *     return keypoints             # <<<<<<<<<<<<<<
  * 
- * def getValidPairs(np.ndarray[float, ndim=4] output,
+ * def getValidPairs(np.ndarray[float, ndim=3] output,
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_keypoints);
@@ -2773,7 +2769,7 @@ static PyObject *__pyx_pf_8openpose_getKeypoints(CYTHON_UNUSED PyObject *__pyx_s
 /* "openpose.pyx":23
  *     return keypoints
  * 
- * def getValidPairs(np.ndarray[float, ndim=4] output,             # <<<<<<<<<<<<<<
+ * def getValidPairs(np.ndarray[float, ndim=3] output,             # <<<<<<<<<<<<<<
  *                      np.ndarray[int, ndim=2] mapIdx,
  *                      list detected_keypoints,
  */
@@ -3015,9 +3011,9 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
   __pyx_pybuffernd_pose_pairs.rcbuffer = &__pyx_pybuffer_pose_pairs;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_output.rcbuffer->pybuffer, (PyObject*)__pyx_v_output, &__Pyx_TypeInfo_float, PyBUF_FORMAT| PyBUF_STRIDES, 4, 0, __pyx_stack) == -1)) __PYX_ERR(0, 23, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_output.rcbuffer->pybuffer, (PyObject*)__pyx_v_output, &__Pyx_TypeInfo_float, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 23, __pyx_L1_error)
   }
-  __pyx_pybuffernd_output.diminfo[0].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_output.diminfo[0].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_output.diminfo[1].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_output.diminfo[1].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_output.diminfo[2].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_output.diminfo[2].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[2]; __pyx_pybuffernd_output.diminfo[3].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[3]; __pyx_pybuffernd_output.diminfo[3].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[3];
+  __pyx_pybuffernd_output.diminfo[0].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_output.diminfo[0].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_output.diminfo[1].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_output.diminfo[1].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_output.diminfo[2].strides = __pyx_pybuffernd_output.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_output.diminfo[2].shape = __pyx_pybuffernd_output.rcbuffer->pybuffer.shape[2];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_mapIdx.rcbuffer->pybuffer, (PyObject*)__pyx_v_mapIdx, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 23, __pyx_L1_error)
@@ -3150,7 +3146,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  */
     __pyx_t_5 = __Pyx_GetItemInt(((PyObject *)__pyx_v_mapIdx), __pyx_v_k, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_5, 0, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_5, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = PyTuple_New(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
@@ -3202,7 +3198,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  */
     __pyx_t_1 = __Pyx_GetItemInt(((PyObject *)__pyx_v_mapIdx), __pyx_v_k, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_1, 1, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
@@ -3780,7 +3776,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                         continue
  *                     # p(u)
  *                     interp_coord = np.array(list(zip(np.linspace(candA[i][0], candB[j][0], num=n_interp_samples),             # <<<<<<<<<<<<<<
- *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)
+ *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)
  *                     # L(p(u))
  */
           __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
@@ -3826,7 +3822,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
           /* "openpose.pyx":80
  *                     # p(u)
  *                     interp_coord = np.array(list(zip(np.linspace(candA[i][0], candB[j][0], num=n_interp_samples),
- *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)             # <<<<<<<<<<<<<<
+ *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)             # <<<<<<<<<<<<<<
  *                     # L(p(u))
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
  */
@@ -3869,7 +3865,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                         continue
  *                     # p(u)
  *                     interp_coord = np.array(list(zip(np.linspace(candA[i][0], candB[j][0], num=n_interp_samples),             # <<<<<<<<<<<<<<
- *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)
+ *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)
  *                     # L(p(u))
  */
           __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
@@ -3895,7 +3891,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
           /* "openpose.pyx":80
  *                     # p(u)
  *                     interp_coord = np.array(list(zip(np.linspace(candA[i][0], candB[j][0], num=n_interp_samples),
- *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)             # <<<<<<<<<<<<<<
+ *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)             # <<<<<<<<<<<<<<
  *                     # L(p(u))
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
  */
@@ -3903,7 +3899,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GetModuleGlobalName(__pyx_t_25, __pyx_n_s_np); if (unlikely(!__pyx_t_25)) __PYX_ERR(0, 80, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_25);
-          __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_25, __pyx_n_s_int); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 80, __pyx_L1_error)
+          __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_25, __pyx_n_s_int32); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 80, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_15);
           __Pyx_DECREF(__pyx_t_25); __pyx_t_25 = 0;
           if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_15) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
@@ -3913,7 +3909,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                         continue
  *                     # p(u)
  *                     interp_coord = np.array(list(zip(np.linspace(candA[i][0], candB[j][0], num=n_interp_samples),             # <<<<<<<<<<<<<<
- *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)
+ *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)
  *                     # L(p(u))
  */
           __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 79, __pyx_L1_error)
@@ -3945,7 +3941,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
           __pyx_t_15 = 0;
 
           /* "openpose.pyx":82
- *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int)
+ *                                             np.linspace(candA[i][1], candB[j][1], num=n_interp_samples))),dtype=np.int32)
  *                     # L(p(u))
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)             # <<<<<<<<<<<<<<
  *                     for k in range(len(interp_coord)):
@@ -4013,7 +4009,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
  *                     for k in range(len(interp_coord)):             # <<<<<<<<<<<<<<
  *                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)
  */
           __pyx_t_16 = PyObject_Length(((PyObject *)__pyx_v_interp_coord)); if (unlikely(__pyx_t_16 == ((Py_ssize_t)-1))) __PYX_ERR(0, 83, __pyx_L1_error)
           __pyx_t_29 = __pyx_t_16;
@@ -4024,7 +4020,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
  *                     for k in range(len(interp_coord)):
  *                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],             # <<<<<<<<<<<<<<
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)
  *                     # E
  */
             __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
@@ -4069,7 +4065,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
             /* "openpose.pyx":85
  *                     for k in range(len(interp_coord)):
  *                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)             # <<<<<<<<<<<<<<
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)             # <<<<<<<<<<<<<<
  *                     # E
  *                     paf_scores = np.dot(paf_interp, d_ij)
  */
@@ -4111,7 +4107,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
  *                     for k in range(len(interp_coord)):
  *                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],             # <<<<<<<<<<<<<<
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)
  *                     # E
  */
             __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
@@ -4126,13 +4122,13 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
             /* "openpose.pyx":85
  *                     for k in range(len(interp_coord)):
  *                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)             # <<<<<<<<<<<<<<
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)             # <<<<<<<<<<<<<<
  *                     # E
  *                     paf_scores = np.dot(paf_interp, d_ij)
  */
             __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
+            __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_4);
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __pyx_t_1 = NULL;
@@ -4189,7 +4185,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
  *                     paf_interp = np.zeros((n_interp_samples, 2),dtype=np.float32)
  *                     for k in range(len(interp_coord)):
  *                         paf_interp[k]=np.array([pafA[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))],             # <<<<<<<<<<<<<<
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)
  *                     # E
  */
             if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_paf_interp), __pyx_v_k, __pyx_t_25, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
@@ -4197,7 +4193,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
           }
 
           /* "openpose.pyx":87
- *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float)
+ *                                            pafB[int(round(interp_coord[k][1])), int(round(interp_coord[k][0]))] ],np.float32)
  *                     # E
  *                     paf_scores = np.dot(paf_interp, d_ij)             # <<<<<<<<<<<<<<
  *                     avg_paf_score = sum(paf_scores)/float(len(paf_scores))
@@ -4646,7 +4642,7 @@ static PyObject *__pyx_pf_8openpose_2getValidPairs(CYTHON_UNUSED PyObject *__pyx
   /* "openpose.pyx":23
  *     return keypoints
  * 
- * def getValidPairs(np.ndarray[float, ndim=4] output,             # <<<<<<<<<<<<<<
+ * def getValidPairs(np.ndarray[float, ndim=3] output,             # <<<<<<<<<<<<<<
  *                      np.ndarray[int, ndim=2] mapIdx,
  *                      list detected_keypoints,
  */
@@ -7026,7 +7022,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_fillConvexPoly, __pyx_k_fillConvexPoly, sizeof(__pyx_k_fillConvexPoly), 0, 0, 1, 1},
   {&__pyx_n_s_findContours, __pyx_k_findContours, sizeof(__pyx_k_findContours), 0, 0, 1, 1},
-  {&__pyx_n_s_float, __pyx_k_float, sizeof(__pyx_k_float), 0, 0, 1, 1},
   {&__pyx_n_s_float32, __pyx_k_float32, sizeof(__pyx_k_float32), 0, 0, 1, 1},
   {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
@@ -7040,7 +7035,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_indexA, __pyx_k_indexA, sizeof(__pyx_k_indexA), 0, 0, 1, 1},
   {&__pyx_n_s_indexB, __pyx_k_indexB, sizeof(__pyx_k_indexB), 0, 0, 1, 1},
-  {&__pyx_n_s_int, __pyx_k_int, sizeof(__pyx_k_int), 0, 0, 1, 1},
   {&__pyx_n_s_int32, __pyx_k_int32, sizeof(__pyx_k_int32), 0, 0, 1, 1},
   {&__pyx_n_s_interp_coord, __pyx_k_interp_coord, sizeof(__pyx_k_interp_coord), 0, 0, 1, 1},
   {&__pyx_n_s_invalid_pairs, __pyx_k_invalid_pairs, sizeof(__pyx_k_invalid_pairs), 0, 0, 1, 1},
@@ -7271,7 +7265,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "openpose.pyx":23
  *     return keypoints
  * 
- * def getValidPairs(np.ndarray[float, ndim=4] output,             # <<<<<<<<<<<<<<
+ * def getValidPairs(np.ndarray[float, ndim=3] output,             # <<<<<<<<<<<<<<
  *                      np.ndarray[int, ndim=2] mapIdx,
  *                      list detected_keypoints,
  */
@@ -7676,7 +7670,7 @@ if (!__Pyx_RefNanny) {
   /* "openpose.pyx":23
  *     return keypoints
  * 
- * def getValidPairs(np.ndarray[float, ndim=4] output,             # <<<<<<<<<<<<<<
+ * def getValidPairs(np.ndarray[float, ndim=3] output,             # <<<<<<<<<<<<<<
  *                      np.ndarray[int, ndim=2] mapIdx,
  *                      list detected_keypoints,
  */
