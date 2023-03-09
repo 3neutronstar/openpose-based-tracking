@@ -21,6 +21,6 @@ python main.py --load-pose --root ~/tracking_data \
  --train-sampler RandomIdentitySampler\
  --reg-matching-score-epoch 0\
  --graph-matching \
- --max-epoch 1 \
+ --max-epoch 2 \
  --part-score
 ```
