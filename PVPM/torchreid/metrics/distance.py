@@ -101,7 +101,8 @@ def euclidean_squared_distance(input1, input2):
     m, n = input1.size(0), input2.size(0)
     distmat = torch.pow(input1, 2).sum(dim=1, keepdim=True).expand(m, n) + \
               torch.pow(input2, 2).sum(dim=1, keepdim=True).expand(n, m).t()
-    distmat.addmm_(1, -2, input1, input2.t())
+    distmat.addmm_(input1, input2.t(),beta=1,alpha=-2)
+    #distmat.addmm_(1, -2, input1, input2.t())
     return distmat
 
 
