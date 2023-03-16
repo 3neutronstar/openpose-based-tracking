@@ -111,7 +111,7 @@ class Exp(MyExp):
             )
         else:
             valdataset = MOTDataset(
-                data_dir=os.path.join(get_yolox_datadir(), "dancetrack"),
+                data_dir=os.path.join(data_dir, "dancetrack"),
                 json_file=self.val_ann,
                 img_size=self.test_size,
                 name='val',

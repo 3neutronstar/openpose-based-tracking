@@ -248,10 +248,11 @@ def main(exp, args, num_gpu,yolov7=False):
     else:
         gt_type = ''
     print('gt_type', gt_type)
-    if args.mot20:
-        gtfiles = glob.glob(os.path.join(args.data_dir,'MOT20/train', '*/gt/gt{}.txt'.format(gt_type)))
-    else:
-        gtfiles = glob.glob(os.path.join(args.data_dir,'/mot/train', '*/gt/gt{}.txt'.format(gt_type)))
+    #if args.mot20:
+    #    gtfiles = glob.glob(os.path.join(args.data_dir,'MOT20/train', '*/gt/gt{}.txt'.format(gt_type)))
+    #else:
+    #    gtfiles = glob.glob(os.path.join(args.data_dir,'mot/train', '*/gt/gt{}.txt'.format(gt_type)))
+    gtfiles=glob.glob(os.path.join(args.data_dir, 'dancetrack', 'train','*/gt/gt{}.txt'.format(gt_type)))
     print('gt_files', gtfiles)
     tsfiles = [f for f in glob.glob(os.path.join(results_folder, '*.txt')) if not os.path.basename(f).startswith('eval')]
 
