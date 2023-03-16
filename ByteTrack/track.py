@@ -17,12 +17,14 @@ import glob
 import motmetrics as mm
 from collections import OrderedDict
 from pathlib import Path
-
+import sys
+sys.path.insert(0,'./yolov7')
 
 def make_parser():
     parser = argparse.ArgumentParser("YOLOX Eval")
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
     parser.add_argument("-n", "--name", type=str, default=None, help="model name")
+    parser.add_argument("--data_dir", type=str, default=None, help="data root name")
 
     # distributed
     parser.add_argument(
@@ -107,7 +109,7 @@ def make_parser():
     parser.add_argument("--match_thresh", type=float, default=0.9, help="matching threshold for tracking")
     parser.add_argument("--min-box-area", type=float, default=100, help='filter out tiny boxes')
     parser.add_argument("--mot20", dest="mot20", default=False, action="store_true", help="test mot20.")
-    parser.add_argument("--yolov7", dest="mot20", default=False, action="store_true", help="yolov7.")
+    parser.add_argument("--yolov7", dest="volov7", default=False, action="store_true", help="yolov7.")
     return parser
 
 
@@ -164,10 +166,19 @@ def main(exp, args, num_gpu,yolov7=False):
         exp.test_size = (args.tsize, args.tsize)
     
     if yolov7:
-        model = attempt_load('yolov7.pt', map_location='cpu')  # load FP32 model #TODO fix
+        model = attempt_load('yolov7x.pt', map_location='cpu')  # load FP32 model #TODO fix
         torch.cuda.set_device(rank)
         model.cuda(rank)
         model.eval()
+        val_loader = exp.get_eval_loader(args.batch_size, is_distributed, args.test,data_dir=args.data_dir)
+        evaluator = MOTEvaluator(
+                args=args,
+                dataloader=val_loader,
+                img_size=exp.test_size,
+                confthre=exp.test_conf,
+                nmsthre=exp.nmsthre,
+                num_classes=exp.num_classes,
+                )
     else:
         model = exp.get_model()
         logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
@@ -238,9 +249,9 @@ def main(exp, args, num_gpu,yolov7=False):
         gt_type = ''
     print('gt_type', gt_type)
     if args.mot20:
-        gtfiles = glob.glob(os.path.join('datasets/MOT20/train', '*/gt/gt{}.txt'.format(gt_type)))
+        gtfiles = glob.glob(os.path.join(args.data_dir,'MOT20/train', '*/gt/gt{}.txt'.format(gt_type)))
     else:
-        gtfiles = glob.glob(os.path.join('datasets/mot/train', '*/gt/gt{}.txt'.format(gt_type)))
+        gtfiles = glob.glob(os.path.join(args.data_dir,'/mot/train', '*/gt/gt{}.txt'.format(gt_type)))
     print('gt_files', gtfiles)
     tsfiles = [f for f in glob.glob(os.path.join(results_folder, '*.txt')) if not os.path.basename(f).startswith('eval')]
 
@@ -301,5 +312,5 @@ if __name__ == "__main__":
         args.machine_rank,
         backend=args.dist_backend,
         dist_url=args.dist_url,
-        args=(exp, args, num_gpu),
+        args=(exp, args, num_gpu,True),
     )

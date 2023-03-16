@@ -93,12 +93,14 @@ class Exp(MyExp):
 
         return train_loader
 
-    def get_eval_loader(self, batch_size, is_distributed, testdev=False):
+    def get_eval_loader(self, batch_size, is_distributed, testdev=False,data_dir=None):
         from yolox.data import MOTDataset, ValTransform
+        if data_dir is None:
+            data_dir=get_yolox_datadir()
         
         if testdev:
             valdataset = MOTDataset(
-                data_dir=os.path.join(get_yolox_datadir(), "dancetrack"),
+                data_dir=os.path.join(data_dir, "dancetrack"),
                 json_file=self.test_ann,
                 img_size=self.test_size,
                 name='test',
