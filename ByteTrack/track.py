@@ -165,7 +165,7 @@ def main(exp, args, num_gpu,yolov7=False):
     if args.tsize is not None:
         exp.test_size = (args.tsize, args.tsize)
     
-    if yolov7:
+    if False: # yolov7x
         model = attempt_load('yolov7x.pt', map_location='cpu')  # load FP32 model #TODO fix
         torch.cuda.set_device(rank)
         model.cuda(rank)
@@ -179,12 +179,12 @@ def main(exp, args, num_gpu,yolov7=False):
                 nmsthre=exp.nmsthre,
                 num_classes=exp.num_classes,
                 )
-    else:
+    if True:
         model = exp.get_model()
         logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
         #logger.info("Model Structure:\n{}".format(str(model)))
 
-        val_loader = exp.get_eval_loader(args.batch_size, is_distributed, args.test)
+        val_loader = exp.get_eval_loader(args.batch_size, is_distributed, args.test, args.data_dir)
         evaluator = MOTEvaluator(
             args=args,
             dataloader=val_loader,
@@ -252,7 +252,7 @@ def main(exp, args, num_gpu,yolov7=False):
     #    gtfiles = glob.glob(os.path.join(args.data_dir,'MOT20/train', '*/gt/gt{}.txt'.format(gt_type)))
     #else:
     #    gtfiles = glob.glob(os.path.join(args.data_dir,'mot/train', '*/gt/gt{}.txt'.format(gt_type)))
-    gtfiles=glob.glob(os.path.join(args.data_dir, 'dancetrack', 'train','*/gt/gt{}.txt'.format(gt_type)))
+    gtfiles=glob.glob(os.path.join(args.data_dir, 'dancetrack', 'val','*/gt/gt.txt'))
     print('gt_files', gtfiles)
     tsfiles = [f for f in glob.glob(os.path.join(results_folder, '*.txt')) if not os.path.basename(f).startswith('eval')]
 
